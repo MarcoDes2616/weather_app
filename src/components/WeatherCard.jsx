@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import countries from "../countries.json"
 import Clock from './Clock';
+import Location from './Location';
 
 
 const WeatherCard = () => {
@@ -51,32 +52,32 @@ const WeatherCard = () => {
                 <div className='first_contain'>
                     <Clock />
                     <div className='img_geo'>
-                    <img src={`http://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="" />
-                    <p><i class='bx bx-map-pin'></i> {geo.name}, {currentCountry?.name}</p>
+                        <img src={`http://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="" />
+                        <Location />
                     </div>
                 </div>
-                <p className='dir'><i class='bx bx-log-in-circle'></i> https://openweathermap.org/</p>
+                <p className='dir'><i className='bx bx-log-in-circle'></i> https://openweathermap.org/</p>
                 <div className='info_weather'>
                     <div className='info temp'>
-                        <i class='bx bxs-sun'></i>
+                        <i className='bx bxs-sun'></i>
                         <p>{isFarenheit ? tempFarenheit : tempCelsius} <br />{isFarenheit ? "°F" : "°C"}</p>
                     </div>
                     <div className='info wind'>
-                        <i class='bx bxl-tailwind-css'></i>
+                        <i className='bx bxl-tailwind-css'></i>
                         <p>{currentWeather.wind?.speed} <br /> m/s</p>
                     </div>
                     <div className='info cloud'>
-                        <i class='bx bxl-google-cloud'></i>
+                        <i className='bx bxl-google-cloud'></i>
                         <p>{currentWeather.clouds?.all}<br />%</p>
                     </div>
                     <div className='info press'>
-                        <i class='bx bxs-thermometer'></i>
+                        <i className='bx bxs-thermometer'></i>
                         <p>{currentWeather.main?.pressure} <br /> hPa</p>
                     </div>
                     <div className='bottom'></div>
                 </div>
                 <div className='btn_contain'>
-                    <button onClick={() => setIsFarenheit(!isFarenheit)}><i class='bx bx-shuffle'></i>  {isFarenheit ? "°C" : "°F"}</button>
+                    <button onClick={() => setIsFarenheit(!isFarenheit)}><i className='bx bx-shuffle'></i>  {isFarenheit ? "°C" : "°F"}</button>
                 </div>  
             </div>
         </div>
