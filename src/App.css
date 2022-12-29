@@ -17,12 +17,16 @@
     color: white;
 }
 .card{
-    width: 100vw;
+    width: 400px;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    background-image: url(./assets/img/bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 .bg_card{
     height: 100vh;

@@ -46,7 +46,6 @@ const WeatherCard = () => {
 
     return (
         <div className='card'>
-            <img className='bg_card' src="../assets/img/bg.png" alt="" />
             <div className='weather__app'>
                 <h1>SMART WEATHER</h1>
                 <div className='first_contain'>
