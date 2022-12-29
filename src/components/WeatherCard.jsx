@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import countries from "../countries.json"
 import Clock from './Clock';
-import Location from './Location';
 
 
 const WeatherCard = () => {
@@ -29,12 +28,17 @@ const WeatherCard = () => {
 
         navigator.geolocation.getCurrentPosition(success, error);
     }, [])
+    console.log(currentWeather);
 
     const tempKelvin = `${currentWeather.main?.temp}`
     const tempFarenheit = Math.round((tempKelvin - 273.15) * 9 / 5 + 32)
     const tempCelsius = Math.round(tempKelvin - 273.15)
 
     const [isFarenheit, setIsFarenheit] = useState(false)
+
+    let currentCountry = countries.find(function (country) {
+        return country.code === `${currentWeather.sys?.country}`
+    })
 
     return (
         <div className='card'>
@@ -44,7 +48,7 @@ const WeatherCard = () => {
                     <Clock />
                     <div className='img_geo'>
                         <img src={`http://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="" />
-                        <Location />
+                        <p><i className='bx bx-map-pin'></i> {currentWeather.name}, {currentCountry?.name}</p>
                     </div>
                 </div>
                 <p className='dir'><i className='bx bx-log-in-circle'></i> https://openweathermap.org/</p>
