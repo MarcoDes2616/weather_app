@@ -9,7 +9,6 @@ import Location from './Location';
 const WeatherCard = () => {
 
     const [currentWeather, setCurrentWeather] = useState({})
-    const [geo, setGeo] = useState({})
 
     useEffect(() => {
         function success(pos) {
@@ -18,9 +17,6 @@ const WeatherCard = () => {
             axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=da0f67a4b754f6b86eebe51869877c34
             `)
                 .then(res => setCurrentWeather(res.data))
-
-            axios.get(`http://api.openweathermap.org/geo/1.0/reverse?lat=${crd.latitude}&lon=${crd.longitude}&limit=1&appid=da0f67a4b754f6b86eebe51869877c34`)
-                .then(res => setGeo(res.data[0]))
 
             console.log('Your current position is:');
             console.log(`Latitude : ${crd.latitude}`);
@@ -33,10 +29,6 @@ const WeatherCard = () => {
 
         navigator.geolocation.getCurrentPosition(success, error);
     }, [])
-
-    let currentCountry = countries.find(function (country) {
-        return country.code === `${geo.country}`
-    })
 
     const tempKelvin = `${currentWeather.main?.temp}`
     const tempFarenheit = Math.round((tempKelvin - 273.15) * 9 / 5 + 32)
