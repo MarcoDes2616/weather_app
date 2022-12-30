@@ -27,11 +27,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    filter: drop-shadow(0px 0px 25px rgb(253, 252, 252));
-}
-.bg_card{
-    height: 100vh;
-    filter: drop-shadow(0px 0px 10px rgb(253, 252, 252));
+    filter: drop-shadow(0px 0px 25px rgb(248, 165, 169));
 }
 .weather__app{
     border-radius: 14%;
@@ -74,16 +70,19 @@
     flex-direction: column;
     align-items: center;
     color: rgb(250, 246, 4);
+    font-size: .8rem;
+    padding-right: .3rem;
+    text-align: center;
 }
 .img_geo img{
-    width: 50%;
+    width: 65%;
     margin-bottom: .5rem;
     filter: drop-shadow(0px 0px 10px rgb(238, 234, 2));
 }
 .info_weather{
     margin-top:;
     width: 100%;
-    height: 26%;
+    height: 24%;
     display: flex;
     flex-wrap: wrap;
     position: relative;
@@ -100,7 +99,7 @@
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     flex-direction: column;
-    font-size: .8rem;
+    font-size: .7rem;
 }
 .temp{
     border: 7px solid rgb(64, 156, 184);
@@ -125,21 +124,14 @@
 .info p{
     color: rgb(235, 225, 118);
 }
-.bottom{
+.button{
     width: 100%;
     height: 22%;
     position: absolute;
     bottom: 0;
     background-color: black;
     border-top: 1px dotted rgb(171, 203, 233);
-}
-.btn_contain{
-    width: 110%;
-    margin: 0 auto;
-    height: 3.2rem;
-    position: relative;
-    background: linear-gradient(to top, rgb(98, 118, 231), transparent);
-    position: relative;
+    text-align: center;
 }
 button{
     color: rgb(194, 165, 240);
@@ -147,13 +139,15 @@ button{
     border-radius: 0 0 50% 50%;
     font-size: .8rem;
     padding: .2rem;
-    background-color: black;
-    position: relative;
-    left: calc(50% - 104px);
+    background: linear-gradient(to bottom, rgb(98, 118, 231), transparent);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 button .bx{
     font-size: .8rem;
+}
+.button p{
+    font-size: .7rem;
+    margin-top: .2rem;
 }
 .dir{
     font-size: .7rem;
@@ -166,7 +160,7 @@ button .bx{
     font-size: .7rem;
 }
 .bx{
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 hr{
     background: linear-gradient(to left, rgb(216, 203, 226), transparent);

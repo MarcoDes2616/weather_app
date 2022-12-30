@@ -69,10 +69,11 @@ const WeatherCard = () => {
                         <i className='bx bxs-thermometer'></i>
                         <p>{currentWeather.main?.pressure} <br /> hPa</p>
                     </div>
-                    <div className='bottom'></div>
-                </div>
-                <div className='btn_contain'>
-                    <button onClick={() => setIsFarenheit(!isFarenheit)}><i className='bx bx-shuffle'></i>  {isFarenheit ? "°C" : "°F"}</button>
+                    <div className='button'>
+                        <button onClick={() => setIsFarenheit(!isFarenheit)}><i className='bx bx-shuffle'></i>  {isFarenheit ? "°C" : "°F"}</button>
+                        <p>by Marco Cardenas - G21 - ACADEMLO</p>
+                    </div>
+                    
                 </div>  
             </div>
         </div>
