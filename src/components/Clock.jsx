@@ -1,4 +1,3 @@
-import { setHours } from 'date-fns/esm';
 import React, {useEffect, useState} from 'react';
 
 function Clock() {
@@ -20,7 +19,7 @@ function Clock() {
     return (
         <div className='clock'>
             {hour} <br /><hr />
-            {minuts}
+            {minuts < 10 ? "0"+minuts : minuts}
         </div>
     );
 };
