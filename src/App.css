@@ -36,6 +36,12 @@
     max-height: 323px;
     overflow: hidden;
     background-color: black;
+    position: relative;
+}
+.bxs-battery-charging{
+    position: absolute;
+    top: 5px;
+    left: 25px;
 }
 .weather__app h1{
     margin-top: .5rem;

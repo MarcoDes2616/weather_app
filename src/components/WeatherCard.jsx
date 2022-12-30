@@ -43,7 +43,7 @@ const WeatherCard = () => {
     return (
         <div className='card'>
             <div className='weather__app'>
-                <h1>SMART WEATHER</h1>
+                <h1>SMART WEATHER</h1><i class='bx bxs-battery-charging'></i>
                 <div className='first_contain'>
                     <Clock />
                     <div className='img_geo'>
