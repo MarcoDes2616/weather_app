@@ -30,9 +30,7 @@ const WeatherCard = () => {
     }, [])
     console.log(currentWeather);
 
-    const tempKelvin = `${currentWeather.main?.temp}`
-    const tempFarenheit = Math.round((tempKelvin - 273.15) * 9 / 5 + 32)
-    const tempCelsius = Math.round(tempKelvin - 273.15)
+    
 
     const [isFarenheit, setIsFarenheit] = useState(false)
 
