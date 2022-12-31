@@ -14,12 +14,15 @@ const Weather_app = () => {
 
             axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=da0f67a4b754f6b86eebe51869877c34
             `)
-                .then(res => setCurrentWeather(res.data))
+                .then(res => {
+                    setCurrentWeather(res.data);
+                })
 
             console.log('Your current position is:');
             console.log(`Latitude : ${crd.latitude}`);
             console.log(`Longitude: ${crd.longitude}`);
         }
+        
 
         function error(err) {
             console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -28,23 +31,24 @@ const Weather_app = () => {
         navigator.geolocation.getCurrentPosition(success, error);
     }, [])
 
+
     const tempKelvin = `${currentWeather.main?.temp}`
-    const tempFarenheit = Math.round((tempKelvin - 273.15) * 9 / 5 + 32)
-    const tempCelsius = Math.round(tempKelvin - 273.15)
+    const tempFarenheit = ((tempKelvin - 273.15) * 9 / 5 + 32).toFixed(1)
+    const tempCelsius = (tempKelvin - 273.15).toFixed(1)
 
     const [isFarenheit, setIsFarenheit] = useState(false)
 
     let currentCountry = countries.find(function (country) {
         return country.code === `${currentWeather.sys?.country}`
     })
-
+    
     return (
         <div className='weather__app'>
             <h1>SMART WEATHER</h1><i className='bx bxs-battery-charging'></i>
             <div className='first_contain'>
                 <Clock />
                 <div className='img_geo'>
-                    <img src={`http://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="" />
+                    {currentWeather.weather?.[0].icon ? <img src={`http://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="" /> : "loading"}                
                     <p><i className='bx bx-map-pin'></i> {currentWeather.name}, {currentCountry?.name}</p>
                 </div>
             </div>
