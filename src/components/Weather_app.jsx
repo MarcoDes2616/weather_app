@@ -14,9 +14,7 @@ const Weather_app = () => {
 
             axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=da0f67a4b754f6b86eebe51869877c34
             `)
-                .then(res => {
-                    setCurrentWeather(res.data);
-                })
+                .then(res => setCurrentWeather(res.data))
 
             console.log('Your current position is:');
             console.log(`Latitude : ${crd.latitude}`);
@@ -31,10 +29,11 @@ const Weather_app = () => {
         navigator.geolocation.getCurrentPosition(success, error);
     }, [])
 
-
+    let tempFarenheit = 0
+    let tempCelsius = 0
     const tempKelvin = `${currentWeather.main?.temp}`
-    const tempFarenheit = ((tempKelvin - 273.15) * 9 / 5 + 32).toFixed(1)
-    const tempCelsius = (tempKelvin - 273.15).toFixed(1)
+    tempFarenheit = ((tempKelvin - 273.15) * 9 / 5 + 32).toFixed(1)
+    tempCelsius = (tempKelvin - 273.15).toFixed(1)
 
     const [isFarenheit, setIsFarenheit] = useState(false)
 
@@ -48,7 +47,7 @@ const Weather_app = () => {
             <div className='first_contain'>
                 <Clock />
                 <div className='img_geo'>
-                    {currentWeather.weather?.[0].icon ? <img src={`https://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="" /> : "loading"}                
+                    {currentWeather.weather?.[0].icon ? <img src={`https://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="" /> : <img src="./src/assets/img/03n.png" alt="" />}                
                     <p><i className='bx bx-map-pin'></i> {currentWeather.name}, {currentCountry?.name}</p>
                 </div>
             </div>
