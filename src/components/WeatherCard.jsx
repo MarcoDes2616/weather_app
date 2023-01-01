@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Weather_app from './Weather_app';
-import PacmanLoader from "react-spinners/PacmanLoader";
 
 
 const WeatherCard = () => {
@@ -21,11 +20,7 @@ const WeatherCard = () => {
         <div className='card'>
             <div className='weather__card'>
                 {load ?
-                    <PacmanLoader
-                        color={"rgb(103, 147, 197)"}
-                        loading={load}
-                        size={30}
-                    /> :
+                    <i className='bx bxl-google-cloud bx-tada bx-lg' ></i> :
                     <Weather_app />}
             </div>
         </div>
