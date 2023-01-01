@@ -28,12 +28,10 @@ const Weather_app = () => {
 
         navigator.geolocation.getCurrentPosition(success, error);
     }, [])
-
-    let tempFarenheit = 0
-    let tempCelsius = 0
+    
     const tempKelvin = `${currentWeather.main?.temp}`
-    tempFarenheit = ((tempKelvin - 273.15) * 9 / 5 + 32).toFixed(1)
-    tempCelsius = (tempKelvin - 273.15).toFixed(1)
+    const tempFarenheit = ((tempKelvin - 273.15) * 9 / 5 + 32).toFixed(1)
+    const tempCelsius = (tempKelvin - 273.15).toFixed(1)
 
     const [isFarenheit, setIsFarenheit] = useState(false)
 
@@ -55,7 +53,7 @@ const Weather_app = () => {
             <div className='info_weather'>
                 <div className='info temp'>
                     <i className='bx bxs-sun'></i>
-                    <p>{isFarenheit ? tempFarenheit : tempCelsius}<br />{isFarenheit ? "°F" : "°C"}</p>
+                    <p>{currentWeather.main?.temp ? (isFarenheit ? tempFarenheit : tempCelsius) : "0"}<br />{isFarenheit ? "°F" : "°C"}</p>
                 </div>
                 <div className='info wind'>
                     <i className='bx bxl-tailwind-css'></i>
