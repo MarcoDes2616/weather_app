@@ -22,7 +22,7 @@ const WeatherCard = () => {
             <div className='weather__card'>
                 {load ?
                     <PacmanLoader
-                        color={"rgb(4, 250, 37)"}
+                        color={"rgb(103, 147, 197)"}
                         loading={load}
                         size={30}
                     /> :
