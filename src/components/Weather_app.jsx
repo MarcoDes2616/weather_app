@@ -47,7 +47,7 @@ const Weather_app = () => {
             <div className='first_contain'>
                 <Clock />
                 <div className='img_geo'>
-                    {currentWeather.weather?.[0].icon ? <img src={`https://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="" /> : <img src="./src/assets/img/03n.png" alt="" />}                
+                    {currentWeather.weather?.[0].icon ? <img src={`https://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="" /> : "loading"}                
                     <p><i className='bx bx-map-pin'></i> {currentWeather.name}, {currentCountry?.name}</p>
                 </div>
             </div>
@@ -59,15 +59,15 @@ const Weather_app = () => {
                 </div>
                 <div className='info wind'>
                     <i className='bx bxl-tailwind-css'></i>
-                    <p>{currentWeather.wind?.speed}<br />m/s</p>
+                    <p>{currentWeather.wind?.speed ? currentWeather.wind?.speed : "0"}<br />m/s</p>
                 </div>
                 <div className='info cloud'>
                     <i className='bx bxl-google-cloud'></i>
-                    <p>{currentWeather.clouds?.all}<br />%</p>
+                    <p>{currentWeather.clouds?.all ? currentWeather.clouds?.all : "0"}<br />%</p>
                 </div>
                 <div className='info press'>
                     <i className='bx bxs-thermometer'></i>
-                    <p>{currentWeather.main?.pressure}<br />hPa</p>
+                    <p>{currentWeather.main?.pressure ? currentWeather.main?.pressure : "0"}<br />hPa</p>
                 </div>
                 <div className='button'>
                     <button onClick={() => setIsFarenheit(!isFarenheit)}><i className='bx bx-shuffle'></i>  {isFarenheit ? "°C" : "°F"}</button>
