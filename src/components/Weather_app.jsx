@@ -46,7 +46,7 @@ const Weather_app = () => {
             <div className='first_contain'>
                 <Clock />
                 <div className='img_geo'>
-                    {currentWeather.weather?.[0].icon ? <img src={`https://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="" /> : <img src={imgDefault} alt="" /> }                
+                    {currentWeather.weather?.[0].icon ? <img src={`https://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="weather icon" /> : <img src={imgDefault} alt="weather icon" /> }                
                     <p><i className='bx bx-map-pin'></i> {currentWeather.name ? currentWeather.name : "city"}, {currentCountry?.name ? currentCountry?.name : "country"}</p>
                 </div>
             </div>
