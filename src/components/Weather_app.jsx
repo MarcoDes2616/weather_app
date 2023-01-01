@@ -46,7 +46,7 @@ const Weather_app = () => {
                 <Clock />
                 <div className='img_geo'>
                     {currentWeather.weather?.[0].icon ? <img src={`https://openweathermap.org/img/wn/${currentWeather.weather?.[0].icon}@2x.png`} alt="" /> : "loading"}                
-                    <p><i className='bx bx-map-pin'></i> {currentWeather.name}, {currentCountry?.name}</p>
+                    <p><i className='bx bx-map-pin'></i> {currentWeather.name ? currentWeather.name : "city"}, {currentCountry?.name ? currentCountry?.name : "country"}</p>
                 </div>
             </div>
             <p className='dir'><i className='bx bx-log-in-circle'></i> https://openweathermap.org/</p>
